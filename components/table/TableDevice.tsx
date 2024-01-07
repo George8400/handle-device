@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
 	Table,
@@ -8,13 +10,23 @@ import {
 	TableCell,
 } from "@nextui-org/react";
 
-export default function TableDevice() {
+interface TableDeviceProps {
+	measurements?: {
+		id: number;
+		date: string;
+		temperature: number;
+		dissolvedMetal: number;
+		ph: number;
+	}[];
+}
+
+export default function TableDevice({ measurements }: TableDeviceProps) {
 	return (
 		<Table aria-label="Example static collection table">
 			<TableHeader>
-				<TableColumn>NAME</TableColumn>
-				<TableColumn>ROLE</TableColumn>
-				<TableColumn>STATUS</TableColumn>
+				<TableColumn>Temp.</TableColumn>
+				<TableColumn>TDS</TableColumn>
+				<TableColumn>pH</TableColumn>
 			</TableHeader>
 			<TableBody>
 				<TableRow key="1">

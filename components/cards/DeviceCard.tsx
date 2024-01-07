@@ -1,4 +1,4 @@
-import { cn } from "@nextui-org/react";
+import { cn } from "@/utils";
 import React, { memo } from "react";
 
 interface DeviceProps extends React.ComponentPropsWithoutRef<"button"> {
@@ -8,10 +8,7 @@ interface DeviceProps extends React.ComponentPropsWithoutRef<"button"> {
 const DeviceCard = ({ device, className, ...props }: DeviceProps) => {
 	return (
 		<button
-			className={cn(
-				"rounded-xl bg-stone-200 flex-grow basis-1/5 p-4 max-h-[300px] aspect-[3/4] cursor-pointer",
-				className
-			)}
+			className={cn("rounded-xl bg-stone-200  p-4 cursor-pointer", className)}
 			{...props}
 		>
 			<h3>{device.name}</h3>
