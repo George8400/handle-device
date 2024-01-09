@@ -15,6 +15,12 @@ const DevicesPage = () => {
 
 	return (
 		<div className="relative w-full h-auto">
+			<div className="mt-4 mb-10 flex gap-x-4 items-center">
+				<h1 className="text-3xl font-bold">Devices list</h1>
+
+				<NewDeviceModal />
+			</div>
+
 			<div className="flex flex-wrap gap-6">
 				{data?.map((device, index) => {
 					const num = index + 1;
@@ -33,8 +39,6 @@ const DevicesPage = () => {
 			</div>
 
 			<Loader isVisible={isLoading} />
-
-			<NewDeviceModal />
 		</div>
 	);
 };

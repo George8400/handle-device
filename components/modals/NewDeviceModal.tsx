@@ -8,6 +8,7 @@ import {
 	Button,
 	useDisclosure,
 	Input,
+	Tooltip,
 } from "@nextui-org/react";
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -30,16 +31,22 @@ export default function NewDeviceModal() {
 
 	return (
 		<>
-			<div className="fixed bottom-0 inset-x-0 container flex justify-end pb-2">
+			<Tooltip
+				content="Add new device"
+				placement="top-start"
+				size="sm"
+				color="primary"
+			>
 				<Button
 					color="primary"
 					size="sm"
-					endContent={<Plus size={18} />}
 					onPress={onOpen}
+					isIconOnly
+					radius="full"
 				>
-					New Device
+					<Plus size={18} />
 				</Button>
-			</div>
+			</Tooltip>
 			<Modal isOpen={isOpen} onOpenChange={onOpenChangeMiddleware}>
 				<ModalContent>
 					{(onClose) => (

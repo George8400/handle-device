@@ -37,7 +37,7 @@ export default function Home() {
 							address: device?.address ?? "",
 							numMeasures: device?.listaMisuration?.length ?? 0,
 						}}
-						className="w-full"
+						className="w-full cursor-auto hover:border-default "
 					/>
 
 					<div className="">

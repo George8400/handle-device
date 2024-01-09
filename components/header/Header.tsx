@@ -33,7 +33,10 @@ export default function Header() {
 	];
 
 	return (
-		<Navbar onMenuOpenChange={setIsMenuOpen}>
+		<Navbar
+			onMenuOpenChange={setIsMenuOpen}
+			className="bg-primary text-white shadow-md"
+		>
 			<NavbarContent>
 				<NavbarMenuToggle
 					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -44,16 +47,16 @@ export default function Header() {
 				</NavbarBrand>
 			</NavbarContent>
 
-			<NavbarContent className="hidden sm:flex gap-4" justify="center">
-				<NavbarItem isActive={pathname === "/"}>
+			<NavbarContent className="hidden sm:flex gap-6" justify="center">
+				<NavbarItem isActive={pathname === "/"} className="text-lg">
 					<Link href="/">Home</Link>
 				</NavbarItem>
-				<NavbarItem isActive={pathname === "/devices"}>
+				<NavbarItem isActive={pathname === "/devices"} className="text-lg">
 					<Link href="/devices" aria-current="page">
 						Devices
 					</Link>
 				</NavbarItem>
-				<NavbarItem isActive={pathname === "/team"}>
+				<NavbarItem isActive={pathname === "/team"} className="text-lg">
 					<Link href="/team">Team</Link>
 				</NavbarItem>
 			</NavbarContent>
@@ -62,7 +65,7 @@ export default function Header() {
 					<Link href="#">Login</Link>
 				</NavbarItem>
 				<NavbarItem>
-					<Button as={Link} color="primary" href="#" variant="flat">
+					<Button as={Link} href="#" variant="bordered" className="text-white">
 						Sign Up
 					</Button>
 				</NavbarItem>
