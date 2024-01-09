@@ -9,15 +9,10 @@ import {
 	TableRow,
 	TableCell,
 } from "@nextui-org/react";
+import { IMisuration } from "@/model/interfaces";
 
 interface TableDeviceProps {
-	measurements?: {
-		id: number;
-		date: string;
-		temperature: number;
-		dissolvedMetal: number;
-		ph: number;
-	}[];
+	measurements?: IMisuration[];
 }
 
 export default function TableDevice({ measurements }: TableDeviceProps) {
@@ -27,28 +22,26 @@ export default function TableDevice({ measurements }: TableDeviceProps) {
 				<TableColumn>Temp.</TableColumn>
 				<TableColumn>TDS</TableColumn>
 				<TableColumn>pH</TableColumn>
+				<TableColumn>Data</TableColumn>
+				<TableColumn>Ora</TableColumn>
 			</TableHeader>
 			<TableBody>
-				<TableRow key="1">
-					<TableCell>Tony Reichert</TableCell>
-					<TableCell>CEO</TableCell>
-					<TableCell>Active</TableCell>
-				</TableRow>
-				<TableRow key="2">
-					<TableCell>Zoey Lang</TableCell>
-					<TableCell>Technical Lead</TableCell>
-					<TableCell>Paused</TableCell>
-				</TableRow>
-				<TableRow key="3">
-					<TableCell>Jane Fisher</TableCell>
-					<TableCell>Senior Developer</TableCell>
-					<TableCell>Active</TableCell>
-				</TableRow>
-				<TableRow key="4">
-					<TableCell>William Howard</TableCell>
-					<TableCell>Community Manager</TableCell>
-					<TableCell>Vacation</TableCell>
-				</TableRow>
+				{measurements?.map((misuration, index) => {
+					return (
+						<TableRow key={index} className="hover:bg-zinc-50">
+							<TableCell>{misuration.temperature}</TableCell>
+							<TableCell>{misuration.dissolvedMetal}</TableCell>
+							<TableCell>{misuration.ph}</TableCell>
+
+							<TableCell>
+								{new Date(misuration.date).toLocaleDateString()}
+							</TableCell>
+							<TableCell>
+								{new Date(misuration.date).toLocaleTimeString()}
+							</TableCell>
+						</TableRow>
+					);
+				}) ?? []}
 			</TableBody>
 		</Table>
 	);

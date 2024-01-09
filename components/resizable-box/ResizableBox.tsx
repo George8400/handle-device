@@ -29,7 +29,7 @@ export default function ResizableBox({
 				padding: ".5rem",
 				...style,
 			}}
-			className="rounded-xl shadow-md border"
+			className="rounded-xl shadow-xl border"
 		>
 			{resizable ? (
 				<ReactResizableBox width={width} height={height}>

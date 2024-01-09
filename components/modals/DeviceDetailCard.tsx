@@ -12,9 +12,10 @@ import {
 import DeviceCard from "../cards/DeviceCard";
 import TableDevice from "../table/TableDevice";
 import Line from "../chart/Line";
+import { IDevice } from "@/model/interfaces";
 
 interface DeviceDetailCardProps {
-	device: ComponentProps<typeof DeviceCard>["device"];
+	device: IDevice;
 }
 
 export default function DeviceDetailCard({ device }: DeviceDetailCardProps) {
@@ -23,7 +24,12 @@ export default function DeviceDetailCard({ device }: DeviceDetailCardProps) {
 	return (
 		<>
 			<DeviceCard
-				device={device}
+				device={{
+					id: device.id,
+					name: device.name,
+					address: device.address,
+					numMeasures: device.listaMisuration.length,
+				}}
 				onClick={onOpen}
 				className="flex-grow basis-1/5 aspect-[3/4] max-h-[300px]"
 			/>
@@ -39,12 +45,12 @@ export default function DeviceDetailCard({ device }: DeviceDetailCardProps) {
 				<ModalContent className="pb-6">
 					{(onClose) => (
 						<>
-							<ModalHeader className="flex flex-col gap-1">
-								Dettagli {device.name}
+							<ModalHeader className="flex gap-1 font-bold text-2xl">
+								{device.name}
 							</ModalHeader>
 							<ModalBody>
 								<div className="flex gap-8">
-									<TableDevice />
+									<TableDevice measurements={device?.listaMisuration ?? []} />
 
 									<div className="space-y-2">
 										<Line />

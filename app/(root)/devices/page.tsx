@@ -1,22 +1,22 @@
 "use client";
 
+import Loader from "@/components/loader/Loader";
 import DeviceDetailCard from "@/components/modals/DeviceDetailCard";
 import NewDeviceModal from "@/components/modals/NewDeviceModal";
-import { fakeDevice } from "@/data/fakeDevice";
 import { fetcher } from "@/lib/fetcher";
-import { CircularProgress } from "@nextui-org/react";
+import { IDevice } from "@/model/interfaces";
 import React from "react";
 import useSWR from "swr";
 
 const DevicesPage = () => {
-	const { data, isLoading } = useSWR("/devices", fetcher, {
+	const { data, isLoading } = useSWR<IDevice[]>("/api/device", fetcher, {
 		refreshInterval: 15000,
 	});
 
 	return (
 		<div className="relative w-full h-auto">
 			<div className="flex flex-wrap gap-6">
-				{new Array(26).fill(fakeDevice)?.map((device, index) => {
+				{data?.map((device, index) => {
 					const num = index + 1;
 
 					return (
@@ -32,11 +32,7 @@ const DevicesPage = () => {
 				})}
 			</div>
 
-			{isLoading && (
-				<div className="fixed inset-0 z-50 flex justify-center items-center bg-black/20">
-					<CircularProgress />
-				</div>
-			)}
+			<Loader isVisible={isLoading} />
 
 			<NewDeviceModal />
 		</div>

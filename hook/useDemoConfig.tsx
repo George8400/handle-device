@@ -199,7 +199,7 @@ function makeSeries(
 	// const length = 5 + Math.round(Math.random() * 15)
 	const length = datums;
 	const min = 0;
-	const max = 100;
+	const max = 50;
 	const rMin = 2;
 	const rMax = 20;
 	const nullChance = 0;
