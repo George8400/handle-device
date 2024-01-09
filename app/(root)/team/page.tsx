@@ -3,28 +3,18 @@ import React from "react";
 
 const teamData = [
 	{
-		name: "John Doe",
-		position: "CEO",
+		name: "Francesco Nicoletti",
+		position: "CO-CTO",
 		image: "https://avatar.iran.liara.run/public/boy",
 	},
 	{
-		name: "Jane Doe",
-		position: "CTO",
+		name: "Giorgio Ubbriaco",
+		position: "CO-CTO",
 		image: "https://avatar.iran.liara.run/public/boy",
 	},
 	{
-		name: "John Smith",
-		position: "COO",
-		image: "https://avatar.iran.liara.run/public/boy",
-	},
-	{
-		name: "Jane Smith",
-		position: "CFO",
-		image: "https://avatar.iran.liara.run/public/boy",
-	},
-	{
-		name: "John Doe",
-		position: "CEO",
+		name: "Amedeo Grandinetti",
+		position: "CO-CTO",
 		image: "https://avatar.iran.liara.run/public/boy",
 	},
 ];

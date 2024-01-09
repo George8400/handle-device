@@ -43,7 +43,7 @@ export default function Header() {
 					className="sm:hidden"
 				/>
 				<NavbarBrand>
-					<code> LOGO</code>
+					<code> WATER CONNECT</code>
 				</NavbarBrand>
 			</NavbarContent>
 
