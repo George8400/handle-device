@@ -12,20 +12,34 @@ import {
 } from "@nextui-org/react";
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
+import fetchJson from "../../lib/fetchJSON";
+import {onCloseMap} from "@react-aria/overlays/src/useCloseOnScroll";
 
 export default function NewDeviceModal() {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+	const { isOpen, onOpen, onOpenChange,onClose } = useDisclosure();
+	const [open, setOpen] = useState(false);
 	const [name, setName] = useState("");
-	const [other, setOther] = useState("");
+	const [address, setAddress] = useState("");
+	const [environment, setEnvironment] = useState("");
 
-	const onSubmit = () => {
-		alert(name + " " + other);
+	const onSubmit = async () => {
+		await fetchJson("api/device", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				name: name,
+				address: address,
+				environment: environment
+			}),
+		});
+		onClose()
+
 	};
 
 	const onOpenChangeMiddleware = () => {
 		setName("");
-		setOther("");
+		setAddress("");
+		setEnvironment("");
 		onOpenChange();
 	};
 
@@ -64,11 +78,18 @@ export default function NewDeviceModal() {
 										onChange={(e) => setName(e.target.value)}
 									/>
 									<Input
-										label="Altro dato"
-										placeholder="Aggiungi altro dato"
+										label="Address"
+										placeholder="Aggiungi address dispositivo"
 										required
-										value={other}
-										onChange={(e) => setOther(e.target.value)}
+										value={address}
+										onChange={(e) => setAddress(e.target.value)}
+									/>
+									<Input
+										label="Environment"
+										placeholder="Aggiungi environment del dispositivo"
+										required
+										value={environment}
+										onChange={(e) => setEnvironment(e.target.value)}
 									/>
 								</div>
 							</ModalBody>

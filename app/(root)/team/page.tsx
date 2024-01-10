@@ -1,21 +1,20 @@
 import { Avatar } from "@nextui-org/react";
 import React from "react";
-
 const teamData = [
 	{
-		name: "Francesco Nicoletti",
+		name: "Amedeo Grandinetti",
 		position: "CO-CTO",
-		image: "https://avatar.iran.liara.run/public/boy",
+		image: "./agra.png",
 	},
 	{
 		name: "Giorgio Ubbriaco",
 		position: "CO-CTO",
-		image: "https://avatar.iran.liara.run/public/boy",
+		image: "./gubb.png",
 	},
 	{
-		name: "Amedeo Grandinetti",
+		name: "Francesco Nicoletti",
 		position: "CO-CTO",
-		image: "https://avatar.iran.liara.run/public/boy",
+		image: "./fnic.png",
 	},
 ];
 

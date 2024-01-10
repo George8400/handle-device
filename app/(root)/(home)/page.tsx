@@ -33,7 +33,7 @@ export default function Home() {
 					<DeviceCard
 						device={{
 							id: device?.id ?? 0,
-							name: device?.name ?? "Device #4",
+							name: device?.name ?? "Nessun dispositivo disponibile",
 							address: device?.address ?? "",
 							numMeasures: device?.listaMisuration?.length ?? 0,
 						}}
