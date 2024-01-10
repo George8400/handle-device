@@ -11,9 +11,8 @@ import {
 	Tooltip,
 } from "@nextui-org/react";
 import { Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import fetchJson from "../../lib/fetchJSON";
-import {onCloseMap} from "@react-aria/overlays/src/useCloseOnScroll";
 
 export default function NewDeviceModal() {
 	const { isOpen, onOpen, onOpenChange,onClose } = useDisclosure();
